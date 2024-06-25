@@ -1,42 +1,42 @@
-body{
-    margin:0;
+body {
+    margin: 0;
     padding: 40px;
     text-align: center;
     background-color: rgb(139, 131, 255);
     align-items: center;
 }
 
-h1{
+h1 {
     color: white;
     font-family: Helvetica;
-    font-size:40px;
+    font-size: 40px;
     text-align: center;
 }
 
-form{
+form {
     align-items: center;
     display: flex;
     flex-direction: column;
 }
 
-input{
+input {
     width: 600px;
     height: 40px;
     padding-left: 15px;
-    border: 1px solid  white;
+    border: 1px solid white;
     border-radius: 10px;
     word-spacing: 1px;
 }
 
-input:focus{
-   outline: blue;
+input:focus {
+    outline: blue;
 }
 
-button{
+button {
     color: white;
     font-size: medium;
     margin-top: 15px;
-    background-color:hotpink ;
+    background-color: hotpink;
     border: none;
     border-radius: 20px;
     height: 35px;
@@ -44,29 +44,43 @@ button{
     cursor: pointer;
 }
 
-button:hover{
+button:hover {
     background-color: rgb(255, 68, 162);
 }
 
-ul{
+#list {
     /* list-style-type: none; */
     color: white;
-    text-align: start;
+    text-align: center;
+    padding-left: 40px;
 }
 
-li{
+li {
+    /* padding-left: 40px; */
+    color: rgb(139, 131, 255);
+    /* display: flex; */
+    /* justify-content: space-between; */
+    padding-left : 10px; 
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    width:fit-content;
+    height: 45px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+.mark_as_done {
+    margin-left: 90px;
+    /* align */
     width: fit-content;
     height: 25px;
-}
+    border: 1px solid hotpink;
+    border-radius: 13px;
 
-
-li:hover{
-    color: chartreuse;
-}
-
-ul li:focus{
-    text-decoration: line-through;
+    :hover {
+        color: chartreuse;
+    }
 }
