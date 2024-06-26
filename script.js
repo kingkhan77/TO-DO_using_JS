@@ -1,8 +1,5 @@
 var StoredTodoString = localStorage.getItem("todos");
-//Get the stored todos string from local storage
-
 var todosArray = JSON.parse(StoredTodoString) || [];
-
 renderTodoList();
 
 function renderTodoList() {
@@ -13,7 +10,6 @@ function renderTodoList() {
         });
     }
 }
-
 
 document.getElementById("submit").addEventListener('click',
     function (event) {
@@ -32,18 +28,15 @@ document.getElementById("submit").addEventListener('click',
 );
 
 function handleTaskDone(index){
-
     const li = document.querySelectorAll('li')[index];
 
     if (todosArray[index].is_marked_done === false) {
         todosArray[index].is_marked_done = true;
-        // event.stopPropagation();
         li.style.textDecoration = 'line-through';
         li.style.color = 'gray';
     }
     else{
         todosArray[index].is_marked_done = false;
-        // event.stopPropagation();
         li.style.textDecoration = 'none';
         li.style.color = 'rgb(139, 131, 255)';
     }
