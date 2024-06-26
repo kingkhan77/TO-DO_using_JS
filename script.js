@@ -8,8 +8,8 @@ renderTodoList();
 function renderTodoList() {
     document.getElementById('list').innerHTML = '';
     if (todosArray.length > 0) {
-        todosArray.forEach((task, index) => {
-            addToList(index, task);
+        todosArray.forEach((curr_task, index) => {
+            addToList(index, curr_task);
         });
     }
 }
@@ -19,10 +19,10 @@ document.getElementById("submit").addEventListener('click',
     function (event) {
         event.preventDefault();
 
-        const task = document.getElementById("task").value.trim();
+        const new_task = document.getElementById("task").value.trim();
 
-        if (task) {
-            todosArray.push(task);
+        if (new_task) {
+            todosArray.push({task: new_task, is_marked_done: false});
             console.log(todosArray);
             localStorage.setItem('todos', JSON.stringify(todosArray));
             renderTodoList();
@@ -34,18 +34,30 @@ document.getElementById("submit").addEventListener('click',
 
 function addToList(index, new_task) {
     const li = document.createElement('li');
-    li.textContent = new_task;
-    // li.setAttribute('onclick', 'deleteTask(' + index + ')')
-
+    li.textContent = new_task.task;
+    if(new_task.is_marked_done === true){
+        li.style.textDecoration='line-through';
+        li.style.color='gray';
+    }
     const done = document.createElement('button');
     done.className = 'mark_as_done';
     done.textContent = '✔';
 
     done.setAttribute('onclick',
-        `event.stopPropagation();
-        this.parentNode.style.textDecoration = 'line-through';`
-        // localStorage.setItem('todos', JSON.stringify(todosArray));
-        // renderTodoList();` 
+        `if (todosArray[${index}].is_marked_done === false) {
+            todosArray[${index}].is_marked_done = true;
+            event.stopPropagation();
+            this.parentNode.style.textDecoration = 'line-through';
+            this.parentNode.style.color = 'gray';
+        }
+        else{
+            todosArray[${index}].is_marked_done = false;
+            event.stopPropagation();
+            this.parentNode.style.textDecoration = 'none';
+            this.parentNode.style.color = 'rgb(139, 131, 255)';
+        }
+        localStorage.setItem('todos', JSON.stringify(todosArray));
+        renderTodoList();` 
     );
 
     const dlt = document.createElement('button');
@@ -58,22 +70,6 @@ function addToList(index, new_task) {
 
     document.getElementById('list').appendChild(li);
     //add new li to ul
-}
-
-// document.querySelectorAll('.mark_as_done').forEach(
-//     function (button) {
-//         button.addEventListener('click', function (e) {
-//             e.stopPropagation();
-//             this.parentNode.style.textDecoration = 'line-through';
-//         })
-//     }
-// );
-
-function markAsDoneTask(e) {
-    // e.stopPropagation();
-    this.parentNode.style.textDecoration = 'line-through';
-    localStorage.setItem('todos', JSON.stringify(todosArray));
-    renderTodoList();
 }
 
 function deleteTask(taskIndex) {
