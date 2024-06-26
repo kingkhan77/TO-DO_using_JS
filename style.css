@@ -3,14 +3,22 @@ body {
     padding: 40px;
     text-align: center;
     background-color: rgb(139, 131, 255);
-    align-items: center;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
 }
 
 h1 {
+    border: none;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    width: fit-content;
     color: white;
     font-family: Helvetica;
     font-size: 40px;
-    text-align: center;
 }
 
 form {
