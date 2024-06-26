@@ -26,6 +26,8 @@ input {
     border: 1px solid white;
     border-radius: 10px;
     word-spacing: 1px;
+    font-family: Halvetica;
+    font-size: large
 }
 
 input:focus {
@@ -56,16 +58,16 @@ button:hover {
 }
 
 li {
-    /* padding-left: 40px; */
+    margin-left: -30px;
     color: rgb(139, 131, 255);
     text-align: left;
-    padding-left : 10px; 
+    padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
-    width:auto;
+    width: auto;
     height: 35px;
     background-color: white;
     border-radius: 10px;
@@ -73,25 +75,28 @@ li {
 }
 
 
-.mark_as_done, .delete{
+.mark_as_done,
+.delete {
     margin-top: 0;
     margin-left: 20px;
     width: fit-content;
+    border-radius: 11px;
     height: 25px;
     border: 1px solid hotpink;
     border-radius: 13px;
     margin-right: 0;
+
     :hover {
         color: chartreuse;
     }
 }
 
-.mark_as_done{
+.mark_as_done {
     position: absolute;
     right: 90px;
 }
 
-.delete{
+.delete {
     position: absolute;
     right: 50px;
 }
