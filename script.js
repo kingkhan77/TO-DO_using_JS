@@ -31,6 +31,25 @@ document.getElementById("submit").addEventListener('click',
     }
 );
 
+function handleTaskDone(index){
+
+    const li = document.querySelectorAll('li')[index];
+
+    if (todosArray[index].is_marked_done === false) {
+        todosArray[index].is_marked_done = true;
+        // event.stopPropagation();
+        li.style.textDecoration = 'line-through';
+        li.style.color = 'gray';
+    }
+    else{
+        todosArray[index].is_marked_done = false;
+        // event.stopPropagation();
+        li.style.textDecoration = 'none';
+        li.style.color = 'rgb(139, 131, 255)';
+    }
+    localStorage.setItem('todos', JSON.stringify(todosArray));
+    renderTodoList();
+}
 
 function addToList(index, new_task) {
     const li = document.createElement('li');
@@ -43,22 +62,7 @@ function addToList(index, new_task) {
     done.className = 'mark_as_done';
     done.textContent = '✔';
 
-    done.setAttribute('onclick',
-        `if (todosArray[${index}].is_marked_done === false) {
-            todosArray[${index}].is_marked_done = true;
-            event.stopPropagation();
-            this.parentNode.style.textDecoration = 'line-through';
-            this.parentNode.style.color = 'gray';
-        }
-        else{
-            todosArray[${index}].is_marked_done = false;
-            event.stopPropagation();
-            this.parentNode.style.textDecoration = 'none';
-            this.parentNode.style.color = 'rgb(139, 131, 255)';
-        }
-        localStorage.setItem('todos', JSON.stringify(todosArray));
-        renderTodoList();` 
-    );
+    done.setAttribute('onclick', `handleTaskDone(${index})`);
 
     const dlt = document.createElement('button');
     dlt.className = 'delete';
