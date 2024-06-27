@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="style.css">
-   <title>TO-DO List</title>
-   <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Microsoft_To-Do_icon.svg/1024px-Microsoft_To-Do_icon.svg.png">
+    <title>TO-DO List</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Microsoft_To-Do_icon.svg/1024px-Microsoft_To-Do_icon.svg.png">
 </head>
+
 <body>
-    <div class="heading"><h1>To-Do List</h1></div>
-    <form id="NewTaskForm">
-    <input type="text" id="task" placeholder="+ Add a Task">
-    <button id="submit" type="submit">Add to List</button>
+    <div id="dayAndDate">
+        <div id="fullDate">
+            <div id="date"></div>
+            <div id="monthAndYear">
+                <div id="month"></div>
+                <div id="year"></div>
+            </div>
+        </div>
+
+        <div id="day">
+
+        </div>
+    </div>
+    <div class="heading">
+        <h1 class="heading_text">To-Do List</h1>
+    </div>
+    <ol id="list">
+    </ol>
+    <form id="newTaskForm">
+        <input type="text" id="task" placeholder="+ Add a Task">
+        <button id="submit" type="submit">+</button>
     </form>
-        <ol id="list">
-        </ol>
     <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -1,3 +1,33 @@
+const today = new Date();
+
+// Extract day, month, and year
+const date = today.getDate();
+const monthIndex = today.getMonth();
+const year = today.getFullYear();
+const dayIndex = today.getDay();
+
+function getMonthName(monthIndex) {
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    return monthNames[monthIndex].toUpperCase();
+}
+
+// Function to get the day of the week name
+function getDayName(dayIndex) {
+    const dayNames = [
+        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+    ];
+    return dayNames[dayIndex].toUpperCase();
+}
+
+
+document.getElementById('date').textContent = date;
+document.getElementById('month').textContent = getMonthName(monthIndex);
+document.getElementById('year').textContent = year;
+document.getElementById('day').textContent = getDayName(dayIndex);
+
 var StoredTodoString = localStorage.getItem("todos");
 var todosArray = JSON.parse(StoredTodoString) || [];
 renderTodoList();
@@ -18,7 +48,7 @@ document.getElementById("submit").addEventListener('click',
         const new_task = document.getElementById("task").value.trim();
 
         if (new_task) {
-            todosArray.push({task: new_task, is_marked_done: false});
+            todosArray.push({ task: new_task, is_marked_done: false });
             console.log(todosArray);
             localStorage.setItem('todos', JSON.stringify(todosArray));
             renderTodoList();
@@ -27,7 +57,7 @@ document.getElementById("submit").addEventListener('click',
     }
 );
 
-function handleTaskDone(index){
+function handleTaskDone(index) {
     const li = document.querySelectorAll('li')[index];
 
     if (todosArray[index].is_marked_done === false) {
@@ -35,7 +65,7 @@ function handleTaskDone(index){
         li.style.textDecoration = 'line-through';
         li.style.color = 'gray';
     }
-    else{
+    else {
         todosArray[index].is_marked_done = false;
         li.style.textDecoration = 'none';
         li.style.color = 'rgb(139, 131, 255)';
@@ -47,9 +77,9 @@ function handleTaskDone(index){
 function addToList(index, new_task) {
     const li = document.createElement('li');
     li.textContent = new_task.task;
-    if(new_task.is_marked_done === true){
-        li.style.textDecoration='line-through';
-        li.style.color='gray';
+    if (new_task.is_marked_done === true) {
+        li.style.textDecoration = 'line-through';
+        li.style.color = 'gray';
     }
     const done = document.createElement('button');
     done.className = 'mark_as_done';
