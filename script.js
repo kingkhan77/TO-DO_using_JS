@@ -78,7 +78,7 @@ function addToList(index, new_task) {
     const li = document.createElement('li');
     li.textContent = new_task.task;
 
-    li.className = "ml-[-30px] text-left p-[10px] bg-white text-[5.5mm] font-sans w-[auto] h-[auto] rounded-[10px] mb-[40px] flex flex-wrap hover:no-underline relative";
+    li.className = "ml-[-30px] text-left p-[10px] bg-white text-[5.5mm] font-sans w-[auto] h-[auto] rounded-[10px] mb-[40px] flex flex-wrap hover:no-underline relative shadow-custom bg-slate-50";
 
     if (new_task.is_marked_done === true) {
         li.style.textDecoration = 'line-through';
