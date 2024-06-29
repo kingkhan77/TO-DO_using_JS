@@ -13,6 +13,9 @@ module.exports = {
       height:{
         '496' :'496px',
       },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(135deg, #153677, #4e085f)',
+      },
     },
   },
   plugins: [
