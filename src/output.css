@@ -640,6 +640,10 @@ h2 {
   height: 100vh;
 }
 
+.h-\[60vh\] {
+  height: 60vh;
+}
+
 .max-h-\[1800px\] {
   max-height: 1800px;
 }
@@ -813,6 +817,10 @@ h2 {
 
 .pt-\[80px\] {
   padding-top: 80px;
+}
+
+.pb-\[80px\] {
+  padding-bottom: 80px;
 }
 
 .text-left {
